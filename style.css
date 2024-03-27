@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #111111;
+    transition: .2s ease;
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+
+.header-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.header-links a:hover{
+    color: #2921e6;
+}
+
+.logo img {
+    width: 300px;
+    object-fit: scale-down;
+}
+
+.header-left{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.header .logo img{
+    width: 200px;
+}
+
+/* LOGIN/REGISTER */
+.form-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    background: linear-gradient(to right, #aeaaff, #2921e6);
+    background-size: 200% 100%;
+    animation: moveGradient 5s linear infinite;
+
+}
+
+.form-container a{
+    color: #2921e6;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+.form-box {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: .5rem;
+    box-shadow: 0 0 25px -12px rgba(31, 43, 58, .15);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+.custom-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.custom-form>div {
+    width: 100%;
+}
+
+.custom-form .half-input {
+    width: 48%;
+}
+
+.custom-form input {
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    border-radius: .5rem;
+    padding: 0.6rem 0.7rem;
+    outline: none;
+    transition: .2s ease;
+
+}
+
+.custom-form input:focus {
+    border-color: #2921e6;
+}
+
+.custom-btn {
+    border: 1px solid #2921e6;
+    background-color: #2921e6;
+    color: white;
+    border-radius: .5rem;
+    padding: 0.6rem 1.5rem;
+    transition: .2s;
+}
+
+.custom-btn:hover {
+    background-color: white;
+    color: #2921e6;
+
+
+}
+
+.custom-form .custom-btn {
+    width: 100%;
+}
+
+.form-info {
+    margin: 1.5rem 0;
+}
+
+.form-info h1 {
+    font-size: 1.5rem;
+}
+
+.little-text {
+    font-size: .9rem;
+}
+
+
+@media screen and (max-width:1400px) {}
+
+@media screen and (max-width:1200px) {}
+
+@media screen and (max-width:992px) {}
+
+@media screen and (max-width:768px) {}
+
+@media screen and (max-width:576px) {
+    .custom-form .half-input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:480px) {}
