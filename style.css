@@ -51,6 +51,9 @@ img {
     align-items: center;
 }
 
+.header-links a.disable{
+    display: none;
+}
 
 .header-links a:hover {
     color: #2921e6;
@@ -132,8 +135,8 @@ img {
     width: 48%;
 }
 
-.custom-form input {
-    width: 100%;
+.custom-form input,.custom-form textarea,.custom-form select  {
+    width: 100%;    
     border: 1px solid #dbdbdb;
     border-radius: .5rem;
     padding: 0.6rem 0.7rem;
@@ -142,7 +145,7 @@ img {
 
 }
 
-.custom-form input:focus {
+.custom-form input:focus,.custom-form textarea:focus,.custom-form select:focus {
     border-color: #2921e6;
 }
 
@@ -308,6 +311,11 @@ div:where(.swal2-container) div:where(.swal2-actions) {
     width: 100%;
     object-fit: cover;
     border-radius: .5rem;
+}
+
+.detail-content ul{
+    list-style-type: none;
+    padding: 0  ;
 }
 
 .profile-container {

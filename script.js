@@ -40,3 +40,13 @@ $("#update").click(function () {
         timer: 1500
     });
 })
+
+$("#add-ad").click(function () {
+    Swal.fire({
+        icon: "success",
+        title: "Başarılı!",
+        text: "İlan başarılı bir şekilde eklendi.",
+        showConfirmButton: false,
+        timer: 1500
+    });
+})
