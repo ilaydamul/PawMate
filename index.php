@@ -17,97 +17,22 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.3/swiper-bundle.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <title>Advert | PawMate</title>
+    <title>PawMate</title>
 
 </head>
 
 <body>
-
-    <header>
-        <div class="container">
-            <div class="header">
-                <div class="header-left">
-                    <a href="index.html" title="PawMate" class="logo">
-                        <img src="images/pawmate-logo.png" alt="PawMate Logo">
-                    </a>
-                    <div class="header-links">
-                        <a href="index.html" title="Anasayfa">Anasayfa</a>
-                        <a href="my-adverts.html" title="İlanlarım">İlanlarım</a>
-                    </div>
-                </div>
-                <div class="header-links">
-                    <a href="login.html" class="disable">Giriş Yap</a>
-                    <a href="register.html" class="disable">Kayıt Ol</a>
-                    <a href="profile.html">Profil</a>
-                    <a href="login.html">Çıkış Yap</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
+<?php require_once("src/header.php"); ?>
     <section class="banner">
         <div class="container">
-            <h1>İlanlarım</h1>
+            <h1>Patiler Arasında Sonsuz Dostluk, Bir Pati Uzakta</h1>
         </div>
     </section>
-
-    <section class="profile-container">
-        <div class="container">
-            <h2 class="title">İlan Ekle</h2>
-
-            <form class="custom-form" style="justify-content: space-between;" action="">
-                <div class="half-input">
-                    <input type="text" name="title" placeholder="İlan Başlığı" >
-                </div>
-                <div class="half-input">
-                    <input type="text" name="name" placeholder="Hayvan Adı" >
-                </div>
-                <div class="half-input">
-                    <input type="text" name="age" placeholder="Yaş" >
-                </div>
-
-                <div class="half-input">
-                    <input type="text" name="gender" placeholder="Cinsiyet" >
-                </div>
-
-                <div class="half-input">
-                    <select id="cars">
-                        <option value="cat">Kedi</option>
-                        <option value="dog">Köpek</option>
-                        <option value="bird">Kuş</option>
-                        <option value="kertenkele">Kertenkele</option>
-                      </select>
-                      
-                </div>
-               
-                <div class="half-input">
-                    <input type="text" name="genus" placeholder="Cins" >
-                </div>
-               
-
-                <div>
-                    <textarea name="description" id="description" rows="5" placeholder="Açıklama"></textarea>
-                </div>
-
-                <div class="btns">
-                    <button class="custom-btn" id="add-ad" type="button">Ekle</button>
-                </div>
-
-            </form>
-
-        </div>
-    </section>
-
-
-
     <section class="section">
         <div class="container">
-            <h2 class="title">Yaptığım Başvurular</h2>
             <div class="advertisements">
                 <div class="advert-card">
                     <a href="/advert-detail.html" title="ilan" class="advert-img">
@@ -181,92 +106,47 @@
                         <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
                     </div>
                 </div>
+                <div class="advert-card">
+                    <a href="/advert-detail.html" title="ilan" class="advert-img">
+                        <img src="images/cat.jpg" alt="ilan">
+                    </a>
+                    <div class="advert-content">
+                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
+                        <div class="advert-info">
+                            Sarıyer/İstanbul
+                        </div>
+                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
+                    </div>
+                </div>
+                <div class="advert-card">
+                    <a href="/advert-detail.html" title="ilan" class="advert-img">
+                        <img src="images/cat.jpg" alt="ilan">
+                    </a>
+                    <div class="advert-content">
+                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
+                        <div class="advert-info">
+                            Sarıyer/İstanbul
+                        </div>
+                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
+                    </div>
+                </div>
+                <div class="advert-card">
+                    <a href="/advert-detail.html" title="ilan" class="advert-img">
+                        <img src="images/cat.jpg" alt="ilan">
+                    </a>
+                    <div class="advert-content">
+                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
+                        <div class="advert-info">
+                            Sarıyer/İstanbul
+                        </div>
+                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
+                    </div>
+                </div>
             </div>
+
+        </div>
         </div>
     </section>
-
-
-    <section class="section">
-        <div class="container">
-            <h2 class="title">Açtığım İlanlar</h2>
-            <div class="advertisements">
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>  
-
-    
 
     <footer>
         <div class="container">
@@ -285,10 +165,9 @@
 
     <!-- Swiper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.3/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- JS -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 

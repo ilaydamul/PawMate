@@ -35,9 +35,9 @@
                 <h1>Kayıt Ol</h1>
                 <div class="little-text">PawMate'e kayıt olun</div>
             </div>
-            <form class="custom-form" action="">
+            <form class="custom-form" name="register_form" onsubmit="return false;">
                 <div class="half-input">
-                    <input type="text" name="name" placeholder="Adınız">
+                    <input type="text" name="register_name" placeholder="Adınız">
                 </div>
                 <div class="half-input">
                     <input type="text" name="surname" placeholder="Soyadınız">
@@ -46,13 +46,13 @@
                     <input type="text" name="username" placeholder="Kullanıcı Adınız">
                 </div>
                 <div class="half-input">
-                    <input type="text" name="phone-no" placeholder="Telefon No">
+                    <input type="tel" name="phone-no" placeholder="Telefon No">
                 </div>
                 <div>
                     <input type="text" name="address" placeholder="Adres">
                 </div>
                 <div>
-                    <input type="text" name="address" placeholder="E-Mail">
+                    <input type="text" name="email" placeholder="E-Mail">
                 </div>
                 <div>
                     <input type="password" name="password" placeholder="Şifre">
@@ -61,12 +61,12 @@
                 <button class="custom-btn" type="submit">Kayıt Ol</button>
             </form>
             <div class="little-text text-center mt-3">
-                Zaten bir hesabınız var mı? <a href="login.html" title="Giriş Yap">Giriş Yap <i
+                Zaten bir hesabınız var mı? <a href="login.php" title="Giriş Yap">Giriş Yap <i
                         class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
@@ -80,7 +80,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.3/swiper-bundle.min.js"></script>
 
     <!-- JS -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/controller.js"></script>
 
 </body>
 

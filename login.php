@@ -45,7 +45,7 @@
                 <button class="custom-btn" type="submit">Giriş Yap</button>
             </form>
             <div class="little-text text-center mt-3">
-                Hesabınız yok mu? <a href="register.html" title="Hemen Kayıt Ol">Hemen Kayıt Ol <i class="fa-solid fa-arrow-right"></i></a>
+                Hesabınız yok mu? <a href="register.php" title="Hemen Kayıt Ol">Hemen Kayıt Ol <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -63,7 +63,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.3/swiper-bundle.min.js"></script>
 
     <!-- JS -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 

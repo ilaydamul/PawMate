@@ -28,27 +28,7 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <div class="header">
-                <div class="header-left">
-                    <a href="index.html" title="PawMate" class="logo">
-                        <img src="images/pawmate-logo.png" alt="PawMate Logo">
-                    </a>
-                    <div class="header-links">
-                        <a href="index.html" title="Anasayfa">Anasayfa</a>
-                        <a href="my-adverts.html" title="İlanlarım">İlanlarım</a>
-                    </div>
-                </div>
-                <div class="header-links">
-                    <a href="login.html" class="disable">Giriş Yap</a>
-                    <a href="register.html" class="disable">Kayıt Ol</a>
-                    <a href="profile.html">Profil</a>
-                    <a href="login.html">Çıkış Yap</a>
-                </div>
-            </div>
-        </div>
-    </header>
+   <?php require_once("src/header.php"); ?>
 
     <section class="banner">
         <div class="container">
@@ -117,7 +97,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- JS -->
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
