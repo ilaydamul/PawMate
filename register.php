@@ -1,3 +1,9 @@
+<?php 
+require_once("src/classess.php");
+$controlClass = new controlClass();
+$controlClass->SessionCheck();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

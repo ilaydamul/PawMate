@@ -1,4 +1,9 @@
-<?php error_reporting(0); ?>
+<?php
+require_once("db.php");
+session_start();
+if(!$_SESSION["user"] || !$_SESSION["user_name"] || !$_SESSION["user_id"] || !$_SESSION["user_surname"]){
+    return header("Location: login.php");
+} ?>
 <header>
         <div class="container">
             <div class="header">
@@ -12,9 +17,9 @@
                     </div>
                 </div>
                 <div class="header-links">
-                    <?php if($_SESSION["nick"]){ ?>
-                    <a href="login.php">Çıkış Yap</a>
+                    <?php if($_SESSION["user"] || $_SESSION["user_name"] || $_SESSION["user_id"]){ ?>
                     <a href="profile.php">Profil</a>
+                    <a href="src/sign_out.php">Çıkış Yap</a>
                     <?php }else {?>
                         <a href="login.php">Giriş Yap</a>
                         <a href="register.php">Kayıt Ol</a>

@@ -1,3 +1,9 @@
+<?php 
+session_start();
+require_once("src/classess.php");
+$controlClass = new controlClass();
+$controlClass->SessionCheck();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +41,7 @@
                 <h1>Giriş Yap</h1>
                 <div class="little-text">PawMate'e giriş yapın</div>
             </div>
-            <form class="custom-form" action="">
+            <form class="custom-form" name="login_form" onsubmit="return false;">
                 <div>
                     <input type="text" name="username" placeholder="Kullanıcı Adı">
                 </div>
@@ -61,9 +67,11 @@
 
     <!-- Swiper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.3/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- JS -->
     <script src="js/script.js"></script>
+    <script src="js/controller.js"></script>
 
 </body>
 

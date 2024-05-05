@@ -50,3 +50,15 @@ $("#add-ad").click(function () {
         timer: 1500
     });
 })
+
+$("#showPassword").click(() => {
+    $passwordInput = $("input[name='password']");
+    if($passwordInput.attr("type") == "password"){
+        $passwordInput.attr("type", "text");
+        $("#showPassword").html("Şifreyi Gizle");
+    }
+    else if($passwordInput.attr("type") == "text"){
+        $passwordInput.attr("type", "password");
+        $("#showPassword").html("Şifreyi Göster");
+    }
+})

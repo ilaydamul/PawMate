@@ -27,48 +27,47 @@
 </head>
 
 <body>
-
-   <?php require_once("src/header.php"); ?>
-
+    <?php require_once("src/header.php");
+    $query = "SELECT * FROM kullanicilar WHERE kullanici_id = '".$_SESSION["user_id"]."'";
+    $result = pg_query($conn, $query);
+    $profileData = pg_fetch_assoc($result);
+    ?>
     <section class="banner">
         <div class="container">
             <h1>Profil</h1>
         </div>
     </section>
-
-
     <section class="profile-container">
         <div class="container">
             <div class="form-info">
                 <h1>Profil</h1>
                 <div class="little-text">Profilinizi güncelleyin</div>
             </div>
-            <form class="custom-form" style="justify-content: space-between;" action="">
+            <form class="custom-form" name="profile_update_form" style="justify-content: space-between;" onsubmit="return false;" action="">
                 <div class="half-input">
-                    <input type="text" name="name" placeholder="Adınız" value="">
+                    <input type="text" value="<?= $profileData["kullanici_ad"] ?>" name="profile_name" placeholder="Adınız">
                 </div>
                 <div class="half-input">
-                    <input type="text" name="surname" placeholder="Soyadınız" value="">
+                    <input type="text" name="profile_surname" value="<?= $profileData["kullanici_soyad"] ?>" placeholder="Soyadınız" >
                 </div>
                 <div class="half-input">
-                    <input type="text" name="username" placeholder="Kullanıcı Adınız" value="">
+                    <input type="text" name="profile_username" value="<?= $profileData["kullanici_nickname"] ?>" placeholder="Kullanıcı Adınız" >
                 </div>
                 <div class="half-input">
-                    <input type="text" name="phone-no" placeholder="Telefon No" value="">
+                    <input type="text" name="profile_phone-no" value="<?= $profileData["kullanici_telefon_no"] ?>" placeholder="Telefon No" >
                 </div>
                 <div>
-                    <input type="text" name="address" placeholder="Adres" value="">
+                    <input type="text" name="profile_address" value="<?= $profileData["kullanici_adres"] ?>" placeholder="Adres" >
                 </div>
                 <div>
-                    <input type="text" name="email" placeholder="E-Mail" value="">
+                    <input type="text" name="profile_email" value="<?= $profileData["kullanici_email"] ?>" placeholder="E-Mail" >
                 </div>
                 <div>
-                    <input type="password" name="password" placeholder="Şifre" value="">
+                    <input type="password" name="profile_password" value="<?= $profileData["kullanici_sifre"] ?>" placeholder="Şifre">
+                    <button id="showPassword" class="btn btn-primary" style="margin-top: 5px;" >Şifreyi göster</button>
                 </div>
                 <div class="btns">
-                    <button class="custom-btn" id="update" type="button">Güncelle</button>
-                    <button class="custom-btn red-btn" type="button">Çıkış Yap</button>
-
+                    <button class="custom-btn" id="update" type="submit">Güncelle</button>
                 </div>
 
             </form>
@@ -77,28 +76,7 @@
     </section>
 
 
-    <footer>
-        <div class="container">
-            @<span id="year"></span> All Right Reserved.
-        </div>
-    </footer>
-
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-    <!-- Swiper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.3/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- JS -->
-    <script src="js/script.js"></script>
-
+    <?php include("src/footer.php"); ?>
 </body>
 
 </html>
