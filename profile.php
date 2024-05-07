@@ -63,8 +63,9 @@
                     <input type="text" name="profile_email" value="<?= $profileData["kullanici_email"] ?>" placeholder="E-Mail" >
                 </div>
                 <div>
-                    <input type="password" name="profile_password" value="<?= $profileData["kullanici_sifre"] ?>" placeholder="Şifre">
-                    <button id="showPassword" class="btn btn-primary" style="margin-top: 5px;" >Şifreyi göster</button>
+                    <input type="password" name="profile_password" value="<?= $profileData["kullanici_sifre"] ?>" id="passwordField" placeholder="Şifre">
+                    <button id="showPassword" type="button" class="btn btn-primary" style="margin-top: 5px;">Şifreyi göster</button>
+
                 </div>
                 <div class="btns">
                     <button class="custom-btn" id="update" type="submit">Güncelle</button>
@@ -79,4 +80,19 @@
     <?php include("src/footer.php"); ?>
 </body>
 
+<script>
+const passwordField = document.getElementById('passwordField');
+    const showPasswordButton = document.getElementById('showPassword');
+
+    showPasswordButton.addEventListener('click', function() {
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            showPasswordButton.textContent = 'Şifreyi gizle';
+        } else {
+            passwordField.type = 'password';
+            showPasswordButton.textContent = 'Şifreyi göster';
+        }
+    });
+
+</script>
 </html>

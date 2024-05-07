@@ -33,117 +33,24 @@
     </section>
     <section class="section">
         <div class="container">
-            <div class="advertisements">
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
+            <div class="ilanlar">
+                <?php 
+               foreach (pg_fetch_all(pg_query($conn, "SELECT * FROM ilanlar")) as $value) {
+                ?>
+                <div class="ilan-detay">
+                    <a href="/advert-detail.html" title="ilan" class="ilan-resim">
                         <img src="images/cat.jpg" alt="ilan">
                     </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
+                    <div class="ilan-icerik">
+                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"];?></a></h2>
+                        <div class="ilan-info">
+                            <?= $value["ilan_hayvan_aciklama"] ?>
                         </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
+                        <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" class="ilan-link">Detayı Gör</a>
                     </div>
                 </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <div class="advert-card">
-                    <a href="/advert-detail.html" title="ilan" class="advert-img">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="advert-content">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!">Kuri Yuva Arıyor!</a></h2>
-                        <div class="advert-info">
-                            Sarıyer/İstanbul
-                        </div>
-                        <a href="/advert-detail.html" class="advert-link">Detayı Gör</a>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
-
         </div>
         </div>
     </section>

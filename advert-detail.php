@@ -28,7 +28,19 @@
 
 <body>
 
-<?php require_once("src/header.php"); ?>
+<?php require_once("src/header.php"); 
+$ID = $_GET["id"];
+if(intval($ID) == 0){
+    header("Location: index.php");
+}
+$ilanDetails = pg_select($conn, "ilanlar", ["ilan_id" => $ID]);
+if(count($ilanDetails) == 0){
+    header("Location: index.php");
+}
+$ilanDetails = $ilanDetails[0];
+$userDetails = pg_select($conn, "kullanicilar", ["kullanici_id" => $ilanDetails["ilan_kullanici_id"]]);
+$userDetails = $userDetails[0];
+?>
 
     <section class="banner">
         <div class="container">
@@ -46,22 +58,20 @@
                 </div>
                 <div class="col-md-6">
                     <div class="detail-content">
-                        <h2>Başvuru Başlığı</h2>
+                        <h2><?= $ilanDetails["ilan_baslik"] ?></h2>
                             <ul>
-                                <li><b>İlgili Kişi:</b> İlayda</li>
-                                <li><b>Hayvan Adı:</b> Boray</li>
-                                <li><b>Yaş:</b> 52</li>
-                                <li><b>Cinsiyet:</b> Belirtmek İstemiyor</li>
-                                <li><b>Tür:</b> Boray</li>
-                                <li><b>Cins:</b> Cins</li>
+                                <li><b>İlgili Kişi:</b> <?= $userDetails["kullanici_ad"]." ".$userDetails["kullanici_soyad"]; ?> </li>
+                                <li><b>Hayvan Adı:</b> <?= $ilanDetails["ilan_hayvan_isim"] ?></li>
+                                <li><b>Yaş:</b> <?= $ilanDetails["ilan_hayvan_yas"] ?></li>
+                                <li><b>Cinsiyet:</b> <?php echo ($ilanDetails["ilan_hayvan_cinsiyet"] == 1) ? "Erkek" : "Kız";  ?></li>
+                                <li><b>Tür:</b> <?= $ilanDetails["ilan_hayvan_tur"] ?></li>
+                                <li><b>Cins:</b> <?= $ilanDetails["ilan_hayvan_cins"] ?></li>
                             </ul>
                         <div>
-                            <p>Açıklama - Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque repellendus
-                                earum aperiam
-                                fugiat tempora aspernatur mollitia reprehenderit ipsa voluptates suscipit.</p>
+                            <p><?= $ilanDetails["ilan_hayvan_aciklama"] ?></p>
                         </div>
                         <div>
-                            <a href="#" class="advert-link" id="advert">İlana Başvur</a>
+                            <a href="#" class="ilan-link" id="advert">İlana Başvur</a>
                         </div>
                     </div>
                 </div>
@@ -121,7 +131,6 @@
 
     <!-- JS -->
     <script src="js/script.js"></script>
-
 </body>
 
 </html>

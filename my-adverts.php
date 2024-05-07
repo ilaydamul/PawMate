@@ -39,52 +39,40 @@
     <section class="profile-container">
         <div class="container">
             <h2 class="title">İlan Ekle</h2>
-
-            <form class="custom-form" style="justify-content: space-between;" action="">
+            <form class="custom-form" style="justify-content: space-between;" onsubmit="return false;" name="create_advert">
                 <div class="half-input">
-                    <input type="text" name="title" placeholder="İlan Başlığı" >
+                    <input type="text" name="advert_title" placeholder="İlan Başlığı" >
                 </div>
                 <div class="half-input">
-                    <input type="text" name="name" placeholder="Hayvan Adı" >
+                    <input type="text" name="advert_name" placeholder="Hayvan Adı" >
                 </div>
                 <div class="half-input">
-                    <input type="text" name="age" placeholder="Yaş" >
-                </div>
-
-                <div class="half-input">
-                    <input type="text" name="gender" placeholder="Cinsiyet" >
+                    <input type="number" name="advert_age" placeholder="Yaş" >
                 </div>
 
                 <div class="half-input">
-                    <select id="cars">
-                        <option value="cat">Kedi</option>
-                        <option value="dog">Köpek</option>
-                        <option value="bird">Kuş</option>
-                        <option value="kertenkele">Kertenkele</option>
-                      </select>
-                      
+                    <select name="advert_gender" id="">
+                        <option value="0">Dişi</option>
+                        <option value="1">Erkek</option>
+                    </select>
                 </div>
-               
                 <div class="half-input">
-                    <input type="text" name="genus" placeholder="Cins" >
+                <input type="text" name="advert_tur" placeholder="Tür">
                 </div>
-               
-
+                <div class="half-input">
+                    <input type="text" name="advert_genus" placeholder="Cins" >
+                </div>
                 <div>
                     <textarea name="description" id="description" rows="5" placeholder="Açıklama"></textarea>
                 </div>
-
                 <div class="btns">
-                    <button class="custom-btn" id="add-ad" type="button">Ekle</button>
+                    <button class="custom-btn" id="add-ad" type="submit">Ekle</button>
                 </div>
 
             </form>
 
         </div>
     </section>
-
-
-
     <section class="section">
         <div class="container">
             <h2 class="title">Yaptığım Başvurular</h2>
@@ -269,6 +257,7 @@
 
     <!-- JS -->
     <script src="js/script.js"></script>
+    <script src="js/controller.js"></script>
 
 </body>
 

@@ -1,8 +1,3 @@
-<?php 
-require_once("src/classess.php");
-$controlClass = new controlClass();
-$controlClass->SessionCheck();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,22 +41,25 @@ $controlClass->SessionCheck();
                     <input type="text" name="register_name" placeholder="Adınız">
                 </div>
                 <div class="half-input">
-                    <input type="text" name="surname" placeholder="Soyadınız">
+                    <input type="text" name="register_surname" placeholder="Soyadınız">
                 </div>
                 <div class="half-input">
-                    <input type="text" name="username" placeholder="Kullanıcı Adınız">
+                    <input type="text" name="register_username" placeholder="Kullanıcı Adınız">
                 </div>
                 <div class="half-input">
-                    <input type="tel" name="phone-no" placeholder="Telefon No">
+                    <input type="tel" name="register_phone-no" placeholder="Telefon No">
                 </div>
                 <div>
-                    <input type="text" name="address" placeholder="Adres">
+                    <input type="text" name="register_address" placeholder="Adres">
                 </div>
                 <div>
-                    <input type="text" name="email" placeholder="E-Mail">
+                    <input type="text" name="register_email" placeholder="E-Mail">
                 </div>
                 <div>
-                    <input type="password" name="password" placeholder="Şifre">
+                    <input type="number" name="register_age" placeholder="Yaşınız">
+                </div>
+                <div>
+                    <input type="password" name="register_password" placeholder="Şifre">
                 </div>
 
                 <button class="custom-btn" type="submit">Kayıt Ol</button>

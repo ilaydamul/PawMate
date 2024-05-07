@@ -214,41 +214,41 @@ img {
     padding: 3rem 0;
 }
 
-.advertisements {
+.ilanlar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
-.advert-card {
+.ilan-detay {
     width: 100%;
     border-radius: .5rem;
     overflow: hidden;
     background: #f3f3f3;
 }
 
-.advert-img {
+.ilan-resim {
     display: block;
     height: 200px;
     overflow: hidden;
 }
 
-.advert-img img {
+.ilan-resim img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: .2s ease;
 }
 
-.advert-content {
+.ilan-icerik {
     padding: 1rem;
 }
 
-.advert-card h2 {
+.ilan-icerik h2 {
     font-size: 1.25rem;
 }
 
-.advert-link {
+.ilan-link {
     display: block;
     background: #e399cf;
     color: white;
@@ -258,15 +258,15 @@ img {
     margin-top: 1rem;
 }
 
-.advert-card:hover img {
+.ilan-detay:hover img {
     scale: 1.1;
 }
 
-.advert-card:hover h2 a {
+.ilan-detay:hover h2 a {
     color: #2921e6;
 }
 
-.advert-card:hover .advert-link {
+.ilan-detay:hover .ilan-link {
     background: #2921e6;
 }
 

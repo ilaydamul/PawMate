@@ -1,14 +1,16 @@
 <?php
 require_once("db.php");
 session_start();
-if(!$_SESSION["user"] || !$_SESSION["user_name"] || !$_SESSION["user_id"] || !$_SESSION["user_surname"]){
+$current_page = basename($_SERVER["SCRIPT_FILENAME"]);
+$index_page = "index.php";
+if($current_page !== $index_page && (!isset($_SESSION["user"]) || !isset($_SESSION["user_name"]) || !isset($_SESSION["user_id"]) || !isset($_SESSION["user_surname"]))){
     return header("Location: login.php");
 } ?>
 <header>
         <div class="container">
             <div class="header">
                 <div class="header-left">
-                    <a href="index.html" title="PawMate" class="logo">
+                    <a href="index.php" title="PawMate" class="logo">
                         <img src="images/pawmate-logo.png" alt="PawMate Logo">
                     </a>
                     <div class="header-links">
