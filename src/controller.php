@@ -5,6 +5,13 @@ function post($key)
     return htmlspecialchars(trim($_POST[$key]));
 }
 require_once("db.php");
+if(!$_POST){
+    $sonuc = array();
+    $sonuc["status"] = "error";
+    $sonuc["message"] = "Post verisi bulunamadi!";
+    echo json_encode($sonuc);
+    return false;
+}
 if (isset($_POST["register_name"])) {
     $sonuc = array();
     $name = $_POST["register_name"];
@@ -94,6 +101,55 @@ if (isset($_POST["advert_title"]) && isset($_POST["advert_name"]) && isset($_POS
         $sonuc["status"] = "success";
         $sonuc["message"] = "Hayvan ilanı başarılı bir şekilde oluşturuldu!";
     }
+}
+if(isset($_POST["user_id"]) && isset($_POST["ilan_id"])){
+    $sonuc = array();
+    $user_id = post("user_id");
+    $ilan_id = post("ilan_id");
+    $check_ilan_id = pg_select($conn, "ilanlar", ["ilan_id" => $ilan_id]);
+    if(count($check_ilan_id) == 0){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "İlan bulunamadı!";
+        echo json_encode($sonuc);
+        exit();
+    }
+    $check_user_id = pg_select($conn, "kullanicilar", ["kullanici_id" => $user_id]);
+    if(count($check_user_id) == 0){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "Kullanıcı bulunamadı!";
+        echo json_encode($sonuc);
+        exit();
+    }
+    $check_self_ilan = pg_select($conn, "ilanlar", ["ilan_id" => $ilan_id, "ilan_kullanici_id" => $user_id]);
+    if(count($check_self_ilan) > 0){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "Kendi ilanınıza başvuru yapamazsınız!";
+        echo json_encode($sonuc);
+        exit();
+    }
+    $check_basvuru = pg_select($conn, "ilan_basvurulari", ["ilan_basvurulan_ilan_id" => $ilan_id, "ilan_basvuran_kullanici_id" => $user_id]);
+    if(count($check_basvuru) > 0){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "Bu ilana daha önce başvuru yaptınız!";
+        echo json_encode($sonuc);
+        exit();
+    }
+    $query = "INSERT INTO ilan_basvurulari (ilan_basvurulan_ilan_id, ilan_basvuran_kullanici_id) VALUES ('$ilan_id', '$user_id')";
+    $solve = pg_query($conn, $query);
+    if(!$solve){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "Başvuru yapılırken bir hata oluştu!";
+    }else{
+        $sonuc["status"] = "success";
+        $sonuc["message"] = "Başvuru başarılı bir şekilde yapıldı!";
+
+    }
+}
+if(isset($_POST["button_id"])){
+    $sonuc = array();
+    $ilan_id = post("button_id");
+    $ilan = pg_select($conn, "ilanlar", ["ilan_id" => $ilan_id]);
+    
 }
 pg_close($conn);
 echo json_encode($sonuc);

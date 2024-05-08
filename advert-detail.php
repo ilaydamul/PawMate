@@ -71,7 +71,11 @@ $userDetails = $userDetails[0];
                             <p><?= $ilanDetails["ilan_hayvan_aciklama"] ?></p>
                         </div>
                         <div>
-                            <a href="#" class="ilan-link" id="advert">İlana Başvur</a>
+                            <form method="post" name="advert_basvuru" onsubmit="return false;">
+                            <button style="width: 100%; border:none;" type="submit" class="ilan-link" id="advert">İlana Başvur</button>
+                            <input type="hidden" name="user_id" value="<?= $_SESSION["user_id"]; ?>">
+                            <input type="hidden" name="ilan_id" value="<?= $ID; ?>">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -79,32 +83,23 @@ $userDetails = $userDetails[0];
 
         </div>
     </section>
-
-
     <section class="section">
         <div class="container">
             <h2 class="title">Başvuru Yapanlar</h2>
             <div class="applications">
+                <?php $user_data = pg_select($conn, "ilan_basvurulari", ["ilan_basvurulan_ilan_id" => $ID]); 
+                if(count($user_data) == 0){
+                    echo "<p>Başvuru yapan kimse bulunamadı!</p>";
+                }else{
+                $take_user_name_and_surname = pg_select($conn, "kullanicilar", ["kullanici_id" => $user_data[0]["ilan_basvuran_kullanici_id"]]);
+                foreach($take_user_name_and_surname as $value){
+                ?>
                 <div class="app-item">
                     <img src="images/user.png" alt="user">
-                    <span class="app-name">Ad Soyad</span>
-                    <span class="app-loc">Konum</span>
+                    <span class="app-name"><?= $value["kullanici_ad"]; ?> <?= $value["kullanici_soyad"]; ?></span>
+                    <span class="app-loc"><?= $value["kullanici_adres"]; ?></span>
                 </div>
-                <div class="app-item">
-                    <img src="images/user.png" alt="user">
-                    <span class="app-name">Ad Soyad</span>
-                    <span class="app-loc">Konum</span>
-                </div>
-                <div class="app-item">
-                    <img src="images/user.png" alt="user">
-                    <span class="app-name">Ad Soyad</span>
-                    <span class="app-loc">Konum</span>
-                </div>
-                <div class="app-item">
-                    <img src="images/user.png" alt="user">
-                    <span class="app-name">Ad Soyad</span>
-                    <span class="app-loc">Konum</span>
-                </div>
+                <?php } }?>
             </div>
         </div>
     </section>
@@ -131,6 +126,7 @@ $userDetails = $userDetails[0];
 
     <!-- JS -->
     <script src="js/script.js"></script>
+    <script src="js/controller.js"></script>
 </body>
 
 </html>
