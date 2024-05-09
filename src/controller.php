@@ -92,9 +92,8 @@ if (isset($_POST["advert_title"]) && isset($_POST["advert_name"]) && isset($_POS
     $age = post("advert_age");
     $advert_gender = post("advert_gender");
     $advert_tur = post("advert_tur");
-    $advert_genus = post("advert_genus");
     $advert_description = post("description");
-    $query = "INSERT INTO ilanlar (ilan_baslik, ilan_kullanici_id , ilan_hayvan_isim, ilan_hayvan_yas, ilan_hayvan_tur, ilan_hayvan_cins, ilan_hayvan_cinsiyet, ilan_hayvan_aciklama) VALUES ('$title', '$user_id', '$name', '$age', '$advert_tur', '$advert_genus', '$advert_gender', '$advert_description')";
+    $query = "INSERT INTO ilanlar (ilan_baslik, ilan_kullanici_id , ilan_hayvan_isim, ilan_hayvan_yas, ilan_hayvan_tur, ilan_hayvan_cinsiyet, ilan_hayvan_aciklama) VALUES ('$title', '$user_id', '$name', '$age', '$advert_tur', '$advert_gender', '$advert_description')";
     $solve = pg_query($conn, $query);
     if (!$solve) {
     } else {
@@ -145,11 +144,33 @@ if(isset($_POST["user_id"]) && isset($_POST["ilan_id"])){
 
     }
 }
-if(isset($_POST["button_id"])){
+if(isset($_POST["delete_button_id"])){
     $sonuc = array();
-    $ilan_id = post("button_id");
+    $ilan_id = post("delete_button_id");
     $ilan = pg_select($conn, "ilanlar", ["ilan_id" => $ilan_id]);
-    
+    if(count($ilan) == 0){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "İlan bulunamadı!";
+        echo json_encode($sonuc);
+        exit();
+    }
+    else{
+        $query = "DELETE FROM ilanlar WHERE ilan_id = '$ilan_id'";
+        $solve = pg_query($conn, $query);
+        if(!$solve){
+            $sonuc["status"] = "error";
+            $sonuc["message"] = "İlan silinirken bir hata oluştu!";
+        }else{
+            $sonuc["status"] = "success";
+            $sonuc["message"] = "İlan başarılı bir şekilde silindi!";
+        }
+    }
 }
+
+
+
+
+
+
 pg_close($conn);
 echo json_encode($sonuc);

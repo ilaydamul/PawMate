@@ -38,7 +38,11 @@ if(count($ilanDetails) == 0){
     header("Location: index.php");
 }
 $ilanDetails = $ilanDetails[0];
-$userDetails = pg_select($conn, "kullanicilar", ["kullanici_id" => $ilanDetails["ilan_kullanici_id"]]);
+$sql = "CREATE OR REPLACE VIEW kullanici_detaylari AS
+        SELECT kullanici_id, kullanici_ad, kullanici_soyad, kullanici_email
+        FROM kullanicilar";
+pg_query($conn, $sql);
+$userDetails = pg_select($conn, "kullanici_detaylari", ["kullanici_id" => $ilanDetails["ilan_kullanici_id"]]);
 $userDetails = $userDetails[0];
 ?>
 
@@ -65,7 +69,6 @@ $userDetails = $userDetails[0];
                                 <li><b>Yaş:</b> <?= $ilanDetails["ilan_hayvan_yas"] ?></li>
                                 <li><b>Cinsiyet:</b> <?php echo ($ilanDetails["ilan_hayvan_cinsiyet"] == 1) ? "Erkek" : "Kız";  ?></li>
                                 <li><b>Tür:</b> <?= $ilanDetails["ilan_hayvan_tur"] ?></li>
-                                <li><b>Cins:</b> <?= $ilanDetails["ilan_hayvan_cins"] ?></li>
                             </ul>
                         <div>
                             <p><?= $ilanDetails["ilan_hayvan_aciklama"] ?></p>

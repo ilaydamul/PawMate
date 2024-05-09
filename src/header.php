@@ -5,7 +5,9 @@ $current_page = basename($_SERVER["SCRIPT_FILENAME"]);
 $index_page = "index.php";
 if($current_page !== $index_page && (!isset($_SESSION["user"]) || !isset($_SESSION["user_name"]) || !isset($_SESSION["user_id"]) || !isset($_SESSION["user_surname"]))){
     return header("Location: login.php");
-} ?>
+}
+?>
+
 <header>
         <div class="container">
             <div class="header">

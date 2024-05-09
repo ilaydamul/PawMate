@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +27,8 @@
 
 <body>
 
-<?php require_once("src/header.php"); ?>
+    <?php require_once("src/header.php");
+    ?>
 
     <section class="banner">
         <div class="container">
@@ -41,13 +41,13 @@
             <h2 class="title">İlan Ekle</h2>
             <form class="custom-form" style="justify-content: space-between;" onsubmit="return false;" name="create_advert">
                 <div class="half-input">
-                    <input type="text" name="advert_title" placeholder="İlan Başlığı" >
+                    <input type="text" name="advert_title" placeholder="İlan Başlığı">
                 </div>
                 <div class="half-input">
-                    <input type="text" name="advert_name" placeholder="Hayvan Adı" >
+                    <input type="text" name="advert_name" placeholder="Hayvan Adı">
                 </div>
                 <div class="half-input">
-                    <input type="number" name="advert_age" placeholder="Yaş" >
+                    <input type="number" name="advert_age" placeholder="Yaş">
                 </div>
 
                 <div class="half-input">
@@ -56,11 +56,29 @@
                         <option value="1">Erkek</option>
                     </select>
                 </div>
-                <div class="half-input">
-                <input type="text" name="advert_tur" placeholder="Tür">
-                </div>
-                <div class="half-input">
-                    <input type="text" name="advert_genus" placeholder="Cins" >
+                <div class="input">
+                    <select id="hayvanlar" name="advert_tur">
+                        <option value="kedi">Kedi</option>
+                        <option value="kopek">Köpek</option>
+                        <option value="kus">Kuş</option>
+                        <option value="balik">Balık</option>
+                        <option value="tavsan">Tavşan</option>
+                        <option value="tavuk">Tavuk</option>
+                        <option value="hamster">Hamster</option>
+                        <option value="sincap">Sincap</option>
+                        <option value="papağan">Papağan</option>
+                        <option value="kaplumbaga">Kaplumbağa</option>
+                        <option value="iguan">İguana</option>
+                        <option value="degu">Degu</option>
+                        <option value="kertenkele">Kertenkele</option>
+                        <option value="sulukus">Su kuşu</option>
+                        <option value="fare">Fare</option>
+                        <option value="kanarya">Kanarya</option>
+                        <option value="ördek">Ördek</option>
+                        <option value="yilan">Yılan</option>
+                        <option value="hamamböceği">Hamamböceği</option>
+                    </select>
+
                 </div>
                 <div>
                     <textarea name="description" id="description" rows="5" placeholder="Açıklama"></textarea>
@@ -81,25 +99,25 @@
                 foreach ($ilan_id as $value) {
                     $ilan = pg_select($conn, "ilanlar", ["ilan_id" => $value["ilan_basvurulan_ilan_id"]]);
                     $ilanlar[] = $ilan[0];
-                } 
+                }
                 ?>
                 <div class="ilanlar">
-                <?php 
-                foreach ($ilanlar as $value) {
-                ?>
-                <div class="ilan-detay">
-                    <a href="/advert-detail.html" title="ilan" class="ilan-resim">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="ilan-icerik">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
-                        <div class="ilan-info">
-                            <?= $value["ilan_hayvan_aciklama"] ?>
+                    <?php
+                    foreach ($ilanlar as $value) {
+                    ?>
+                        <div class="ilan-detay">
+                            <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                                <img src="images/cat.jpg" alt="ilan">
+                            </a>
+                            <div class="ilan-icerik">
+                                <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                                <div class="ilan-info">
+                                    <?= $value["ilan_hayvan_aciklama"] ?>
+                                </div>
+                                <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" class="ilan-link">Detayı Gör</a>
+                            </div>
                         </div>
-                        <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" class="ilan-link">Detayı Gör</a>
-                    </div>
-                </div>
-                <?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -112,39 +130,28 @@
             <div class="ilanlar">
                 <?php
                 $ilan_datas = pg_select($conn, "ilanlar", ["ilan_kullanici_id" => $_SESSION["user_id"]]);
-                if(count($ilan_datas) == 0){
+                if (count($ilan_datas) == 0) {
                     echo "<p>Henüz ilan açmamışsınız!</p>";
-                    return false;
                 }
-                foreach ($ilan_datas as $value) 
-                {
+                foreach ($ilan_datas as $value) {
                 ?>
-                <div class="ilan-detay">
-                    <a href="/advert-detail.html" title="ilan" class="ilan-resim">
-                        <img src="images/cat.jpg" alt="ilan">
-                    </a>
-                    <div class="ilan-icerik">
-                        <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
-                        <div class="ilan-info">
-                            <?= $value["ilan_hayvan_aciklama"]; ?>
+                    <div class="ilan-detay">
+                        <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                            <img src="images/cat.jpg" alt="ilan">
+                        </a>
+                        <div class="ilan-icerik">
+                            <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                            <div class="ilan-info">
+                                <?= $value["ilan_hayvan_aciklama"]; ?>
+                            </div>
+                            <a href="advert-detail.php?id=<?= $value["ilan_id"] ?>" class="ilan-link">Detayı Gör</a>
+                            <button name="delete_button" data-id="<?= $value["ilan_id"]; ?>" class="ilan-link" style="background-color: red; border:none; width:100%;">Sil</button>
                         </div>
-                        <a href="advert-detail.php?id=<?= $value["ilan_id"] ?>" class="ilan-link">Detayı Gör</a>
-                        <button name="delete_button" data-id="<?= $value["ilan_id"]; ?>" class="ilan-link" style="background-color: red; border:none; width:100%;">Sil</button>
                     </div>
-                </div>
                 <?php } ?>
             </div>
         </div>
-    </section>  
-
-    
-
-    <footer>
-        <div class="container">
-            @<span id="year"></span> All Right Reserved.
-        </div>
-    </footer>
-
+    </section>
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
@@ -161,7 +168,6 @@
     <!-- JS -->
     <script src="js/script.js"></script>
     <script src="js/controller.js"></script>
-
 </body>
 
 </html>

@@ -118,7 +118,7 @@ $('form[name="profile_update_form"]').submit(function (event) {
         }
     });
 });
-$('form[name="create_advert"]').submit(() => {
+$('form[name="create_advert"]').submit(function() {
     var form = $('form[name="create_advert"]');
     var formdata = form.serializeArray();
     var hasEmptyField = false;
@@ -186,9 +186,9 @@ $('form[name="advert_basvuru"]').submit(() => {
     });
 });
 $("button[name='delete_button']").click(function () {
-    var button_id = $(this).data("id");
+    var delete_button_id = $(this).data("id");
     var delete_status = true;
-    if(button_id == "" || button_id == null || button_id == undefined || isNaN(button_id) || !parseInt(button_id)){
+    if(delete_button_id == "" || delete_button_id == null || delete_button_id == undefined || isNaN(delete_button_id) || !parseInt(delete_button_id)){
         errorSwal("İlan silinirken bir hata oluştu! Lütfen yöneticiyle iletişime geçin!");
         delete_status = false;
     }
@@ -196,7 +196,7 @@ $("button[name='delete_button']").click(function () {
         $.ajax({
             type: "POST",
             url: "src/controller.php",
-            data: {button_id},
+            data: {delete_button_id},
             dataType: "JSON",
             success: function (response) {
                 if(response.status == "success"){
