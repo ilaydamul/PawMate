@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require_once("db.php");
 session_start();
 $current_page = basename($_SERVER["SCRIPT_FILENAME"]);
