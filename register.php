@@ -30,7 +30,7 @@
     <section class="form-container">
         <div class="form-box">
             <div class="logo">
-                <img src="images/pawmate-logo.png" alt="PawMate Logo">
+               <a href="index.php"><img src="images/pawmate-logo.png" alt="PawMate Logo"></a> 
             </div>
             <div class="form-info">
                 <h1>Kayıt Ol</h1>

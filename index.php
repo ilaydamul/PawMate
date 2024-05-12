@@ -33,6 +33,12 @@ GROUP BY ilan_hayvan_cinsiyet
 HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
     $old_animals = pg_query($conn, $sql);
     $old_animals = pg_fetch_assoc($old_animals);
+    if(empty($old_animals)){
+        $old_animals["metin"] = "Ana sayfa";
+    }
+    else {
+        $old_animals["metin"] = "Biliyor musunuz? Sitemizdeki en yaşlı dişi hayvan " . $old_animals["max_yas"] . " yaşındadır.";
+    }
     ?>
     <?php
     if (isset($_GET["cinsiyet"]) && $_GET["cinsiyet"] != "tumu") {
@@ -103,7 +109,7 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
     <section class="banner">
         <div class="container">
             <h1>
-                Biliyor musunuz? Sitemizdeki en yaşlı dişi hayvan <?= $old_animals["max_yas"] ?> yaşındadır.
+               <?= $old_animals["metin"]; ?>
             </h1>
         </div>
     </section>
@@ -213,7 +219,7 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                     <?php }}
                 } elseif ($_GET["yas"] && isset($_GET["yas"])) {
                     if(count($resultFunction) == 0){
-                        echo "Sonuç bulunamadı!";
+                        echo '<div class="alert alert-warning">Henüz ilan eklenmemiş.</div>';
                     }else{
                     ?>
                     <?php foreach ($resultFunction as $value) { ?>
@@ -231,8 +237,8 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                         </div>
                     <?php }}
                 }
-                else { ?>
-                    <?php foreach (pg_fetch_all(pg_query($conn, "SELECT * FROM ilanlar")) as $value) { ?>
+                else { $ilanQuery = pg_fetch_all(pg_query($conn, "SELECT * FROM ilanlar")); if(!empty($ilanQuery)){ ?>
+                    <?php foreach ($ilanQuery as $value) { ?>
                         <div class="ilan-detay">
                             <a href="/advert-detail.html" title="ilan" class="ilan-resim">
                                 <img src="images/cat.jpg" alt="ilan">
@@ -245,8 +251,9 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                                 <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" class="ilan-link">Detayı Gör</a>
                             </div>
                         </div>
-                <?php }
-                } ?>
+                <?php } } else { ?>
+                    <div class="alert alert-warning">Henüz ilan eklenmemiş.</div>
+            <?php } }  ?>
             </div>
         </div>
     </section>

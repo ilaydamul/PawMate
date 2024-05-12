@@ -48,7 +48,7 @@ $userDetails = $userDetails[0];
 
     <section class="banner">
         <div class="container">
-            <h1>İlan Başlığı</h1>
+            <h1><?= $ilanDetails["ilan_baslik"]; ?></h1>
         </div>
     </section>
 
@@ -70,7 +70,7 @@ $userDetails = $userDetails[0];
                                 <li><b>Cinsiyet:</b> <?php echo ($ilanDetails["ilan_hayvan_cinsiyet"] == 1) ? "Erkek" : "Kız";  ?></li>
                                 <li><b>Tür:</b> <?= $ilanDetails["ilan_hayvan_tur"] ?></li>
                             </ul>
-                        <div>
+                        <div><b>Açıklama:</b>
                             <p><?= $ilanDetails["ilan_hayvan_aciklama"] ?></p>
                         </div>
                         <div>
