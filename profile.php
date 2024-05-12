@@ -55,6 +55,7 @@
                 </div>
                 <div class="half-input">
                     <input type="text" name="profile_phone-no" value="<?= $profileData["kullanici_telefon_no"] ?>" placeholder="Telefon No" >
+                    <label for="phone-no" style="opacity: 50%; font-size:16px;">Telefon numaranızı başında 0 olmadan yazınız.</label>
                 </div>
                 <div>
                     <input type="text" name="profile_address" value="<?= $profileData["kullanici_adres"] ?>" placeholder="Adres" >

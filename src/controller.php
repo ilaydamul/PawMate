@@ -102,6 +102,12 @@ if (isset($_POST["profile_name"]) || isset($_POST["profile_password"])) {
         echo json_encode($sonuc);
         return false;
     }
+    if($password == $username){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "Şifreniz kullanıcı adınız ile aynı olamaz!";
+        echo json_encode($sonuc);
+        return false;
+    }
     if($previous_email != $email){
         $result = pg_select($conn, "kullanicilar", ["kullanici_email" => $email]);
         if (count($result) > 0) {

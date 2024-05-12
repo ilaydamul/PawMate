@@ -101,6 +101,11 @@ $('form[name="profile_update_form"]').submit(function (event) {
             return false; 
         }
         element.value = element.value.trim();
+        if(element.name == "profile_password" && element.value.length < 8){
+            errorSwal("Şifre en az 8 karakter olmalıdır.");
+            hasEmptyField = true;
+            return false;
+        }
     });
     if (hasEmptyField) return false;
     $.ajax({
@@ -210,5 +215,19 @@ $("button[name='delete_button']").click(function () {
                 }
             }
         });
+    }
+});
+$("input[name='profile_phone-no']").keydown((event) => {
+    var currentlength = $(event.target).val().length;
+
+    if(currentlength >= 10 && event.key !== "Backspace" && event.key !== "Delete"){
+        event.preventDefault();
+    }
+});
+$("input[name='register_phone-no']").keydown((event) => {
+    var currentlength = $(event.target).val().length;
+
+    if(currentlength >= 10 && event.key !== "Backspace" && event.key !== "Delete"){
+        event.preventDefault();
     }
 });
