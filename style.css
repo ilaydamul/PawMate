@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #111111;
+    transition: .2s ease;
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* PAGE SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e9e9e9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2921e6;
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+
+.header-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.header-links a.disable{
+    display: none;
+}
+
+.header-links a:hover {
+    color: #2921e6;
+}
+
+.logo img {
+    width: 300px;
+    object-fit: scale-down;
+}
+
+.header-left {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.header .logo img {
+    width: 200px;
+}
+
+/* LOGIN/REGISTER */
+.form-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    background: linear-gradient(to right, #aeaaff, #2921e6);
+    background-size: 200% 100%;
+    animation: moveGradient 5s linear infinite;
+
+}
+
+.form-container a {
+    color: #2921e6;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+.form-box {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: .5rem;
+    box-shadow: 0 0 25px -12px rgba(31, 43, 58, .15);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+.custom-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.custom-form>div {
+    width: 100%;
+}
+
+.custom-form .half-input {
+    width: 48%;
+}
+
+.custom-form input,.custom-form textarea,.custom-form select  {
+    width: 100%;    
+    border: 1px solid #dbdbdb;
+    border-radius: .5rem;
+    padding: 0.6rem 0.7rem;
+    outline: none;
+    transition: .2s ease;
+
+}
+
+.custom-form input:focus,.custom-form textarea:focus,.custom-form select:focus {
+    border-color: #2921e6;
+}
+
+.custom-btn {
+    border: 1px solid #2921e6;
+    background-color: #2921e6;
+    color: white;
+    border-radius: .5rem;
+    padding: 0.6rem 1.5rem;
+    transition: .2s;
+}
+
+.custom-btn:hover {
+    background-color: white;
+    color: #2921e6;
+
+
+}
+
+.custom-form .custom-btn {
+    width: 100%;
+}
+
+.form-info {
+    margin: 1.5rem 0;
+}
+
+.form-info h1 {
+    font-size: 1.5rem;
+}
+
+.little-text {
+    font-size: .9rem;
+}
+
+/* BANNER */
+.banner {
+    background: url(images/pawmate-banner.jpg);
+    background-size: cover;
+    padding: 3rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000005e;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ADVERTISEMENTS */
+.section {
+    padding: 3rem 0;
+}
+
+.ilanlar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.ilan-detay {
+    width: 100%;
+    border-radius: .5rem;
+    overflow: hidden;
+    background: #f3f3f3;
+}
+
+.ilan-resim {
+    display: block;
+    height: 200px;
+    overflow: hidden;
+}
+
+.ilan-resim img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .2s ease;
+}
+
+.ilan-icerik {
+    padding: 1rem;
+}
+
+.ilan-icerik h2 {
+    font-size: 1.25rem;
+}
+
+.ilan-link {
+    display: block;
+    background: #e399cf;
+    color: white;
+    border-radius: .5rem;
+    text-align: center;
+    padding: .5rem;
+    margin-top: 1rem;
+}
+
+.ilan-detay:hover img {
+    scale: 1.1;
+}
+
+.ilan-detay:hover h2 a {
+    color: #2921e6;
+}
+
+.ilan-detay:hover .ilan-link {
+    background: #2921e6;
+}
+
+/* FOOTER */
+footer {
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: .5rem 0;
+}
+
+.app-item img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.app-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0px 0px 10px 0px #dfdfdf;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+}
+
+.app-name {
+    font-weight: bold;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+div:where(.swal2-container) div:where(.swal2-actions) {
+    gap: 1rem;
+}
+
+.detail-img img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+.detail-content ul{
+    list-style-type: none;
+    padding: 0  ;
+}
+
+.profile-container {
+    padding: 3rem 0;
+}
+
+
+.btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.btns a {
+    width: 100%;
+}
+
+.red-btn {
+    background-color: red;
+    border-color: red;
+}
+
+.red-btn:hover{
+    color: red;
+}
+
+@media screen and (max-width:1400px) {}
+
+@media screen and (max-width:1200px) {}
+
+@media screen and (max-width:992px) {
+
+    /* ADVERTISEMENTS */
+    .advertisements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}
+
+@media screen and (max-width:768px) {
+    .section {
+        padding: 1.5rem 0;
+    }
+
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media screen and (max-width:576px) {
+    .custom-form .half-input {
+        width: 100%;
+    }
+
+    .banner h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+
+    /* ADVERTISEMENTS */
+    .advertisements {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
