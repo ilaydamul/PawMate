@@ -63,6 +63,8 @@
                     <input type="text" name="profile_email" value="<?= $profileData["kullanici_email"] ?>" placeholder="E-Mail" >
                 </div>
                 <div>
+                <input type="text" name="previous_email" value="<?= $profileData["kullanici_email"] ?>"  hidden>
+                <input type="text" name="previous_username" value="<?= $profileData["kullanici_nickname"] ?>" hidden >
                     <input type="password" name="profile_password" value="<?= $profileData["kullanici_sifre"] ?>" id="passwordField" placeholder="Şifre">
                     <button id="showPassword" type="button" class="btn btn-primary" style="margin-top: 5px;">Şifreyi göster</button>
 

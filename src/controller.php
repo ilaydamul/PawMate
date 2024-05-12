@@ -23,6 +23,12 @@ if (isset($_POST["register_name"])) {
     $email = $_POST["register_email"];
     $password = $_POST["register_password"];
     $age = $_POST["register_age"];
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "Lütfen geçerli bir email adresi giriniz!";
+        echo json_encode($sonuc);
+        return false;
+    }
     $result = pg_select($conn, "kullanicilar", ["kullanici_email" => $email]);
     $resultTwo = pg_select($conn, "kullanicilar", ["kullanici_nickname" => $username]);
     if (count($result) > 0) {
@@ -88,6 +94,53 @@ if (isset($_POST["profile_name"]) || isset($_POST["profile_password"])) {
     $address = post("profile_address");
     $email = post("profile_email");
     $password = post("profile_password");
+    $previous_email = post("previous_email");
+    $previous_username = post("previous_username");
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        $sonuc["status"] = "error";
+        $sonuc["message"] = "Lütfen geçerli bir email adresi giriniz!";
+        echo json_encode($sonuc);
+        return false;
+    }
+    if($previous_email != $email){
+        $result = pg_select($conn, "kullanicilar", ["kullanici_email" => $email]);
+        if (count($result) > 0) {
+            $sonuc["status"] = "error";
+            $sonuc["message"] = "Bu email adresi ile daha önce kayıt olunmuş!";
+            echo json_encode($sonuc);
+            return false;
+        }else{
+            $query = "UPDATE kullanicilar SET kullanici_ad = '$name', kullanici_soyad = '$surname', kullanici_nickname = '$username', kullanici_telefon_no = '$phone_no', kullanici_adres = '$address', kullanici_email = '$email', kullanici_sifre = '$password' WHERE kullanici_id = '" . $_SESSION["user_id"] . "'";
+            $solve = pg_query($conn, $query);
+            if (!$solve) {
+                $sonuc["status"] = "error";
+                $sonuc["message"] = "Profil güncellenirken bir hata oluştu!";
+            } else {
+                $sonuc["status"] = "success";
+                $sonuc["message"] = "Profil başarılı bir şekilde güncellendi!";
+            }
+        
+        }
+    }
+    else if($previous_username != $username){
+        $resultTwo = pg_select($conn, "kullanicilar", ["kullanici_nickname" => $username]);
+        if (count($resultTwo) > 0) {
+            $sonuc["status"] = "error";
+            $sonuc["message"] = "Bu kullanıcı adı daha önce alınmış!";
+            echo json_encode($sonuc);
+            return false;
+        }else{
+            $query = "UPDATE kullanicilar SET kullanici_ad = '$name', kullanici_soyad = '$surname', kullanici_nickname = '$username', kullanici_telefon_no = '$phone_no', kullanici_adres = '$address', kullanici_email = '$email', kullanici_sifre = '$password' WHERE kullanici_id = '" . $_SESSION["user_id"] . "'";
+            $solve = pg_query($conn, $query);
+            if (!$solve) {
+                $sonuc["status"] = "error";
+                $sonuc["message"] = "Profil güncellenirken bir hata oluştu!";
+            } else {
+                $sonuc["status"] = "success";
+                $sonuc["message"] = "Profil başarılı bir şekilde güncellendi!";
+            }
+        }
+    }else {
     $query = "UPDATE kullanicilar SET kullanici_ad = '$name', kullanici_soyad = '$surname', kullanici_nickname = '$username', kullanici_telefon_no = '$phone_no', kullanici_adres = '$address', kullanici_email = '$email', kullanici_sifre = '$password' WHERE kullanici_id = '" . $_SESSION["user_id"] . "'";
     $solve = pg_query($conn, $query);
     if (!$solve) {
@@ -97,6 +150,7 @@ if (isset($_POST["profile_name"]) || isset($_POST["profile_password"])) {
         $sonuc["status"] = "success";
         $sonuc["message"] = "Profil başarılı bir şekilde güncellendi!";
     }
+}
 }
 if (isset($_POST["advert_title"]) && isset($_POST["advert_name"]) && isset($_POST["advert_age"])) {
     $sonuc = array();
