@@ -106,11 +106,11 @@
                     foreach ($ilanlar as $value) {
                     ?>
                         <div class="ilan-detay">
-                            <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                            <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="ilan" class="ilan-resim">
                                 <img src="images/cat.jpg" alt="ilan">
                             </a>
                             <div class="ilan-icerik">
-                                <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                                <h2><a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
                                 <div class="ilan-info">
                                     <?= $value["ilan_hayvan_aciklama"] ?>
                                 </div>
@@ -136,11 +136,11 @@
                 foreach ($ilan_datas as $value) {
                 ?>
                     <div class="ilan-detay">
-                        <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                        <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="ilan" class="ilan-resim">
                             <img src="images/cat.jpg" alt="ilan">
                         </a>
                         <div class="ilan-icerik">
-                            <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                            <h2><a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
                             <div class="ilan-info">
                                 <?= $value["ilan_hayvan_aciklama"]; ?>
                             </div>

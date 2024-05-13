@@ -185,11 +185,11 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                 <?php if (@$_GET["cinsiyet"] != "tumu" && isset($_GET["cinsiyet"])) { ?>
                     <?php foreach ($resultFunction as $value) { ?>
                         <div class="ilan-detay">
-                            <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                            <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="ilan" class="ilan-resim">
                                 <img src="images/cat.jpg" alt="ilan">
                             </a>
                             <div class="ilan-icerik">
-                                <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                                <h2><a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
                                 <div class="ilan-info">
                                     <?= $value["ilan_hayvan_aciklama"] ?>
                                 </div>
@@ -205,11 +205,11 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                     ?>
                     <?php foreach ($resultFunction as $value) { ?>
                         <div class="ilan-detay">
-                            <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                            <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="ilan" class="ilan-resim">
                                 <img src="images/cat.jpg" alt="ilan">
                             </a>
                             <div class="ilan-icerik">
-                                <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                                <h2><a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
                                 <div class="ilan-info">
                                     <?= $value["ilan_hayvan_aciklama"] ?>
                                 </div>
@@ -224,11 +224,11 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                     ?>
                     <?php foreach ($resultFunction as $value) { ?>
                         <div class="ilan-detay">
-                            <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                            <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="ilan" class="ilan-resim">
                                 <img src="images/cat.jpg" alt="ilan">
                             </a>
                             <div class="ilan-icerik">
-                                <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                                <h2><a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
                                 <div class="ilan-info">
                                     <?= $value["ilan_hayvan_aciklama"] ?>
                                 </div>
@@ -240,11 +240,11 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                 else { $ilanQuery = pg_fetch_all(pg_query($conn, "SELECT * FROM ilanlar")); if(!empty($ilanQuery)){ ?>
                     <?php foreach ($ilanQuery as $value) { ?>
                         <div class="ilan-detay">
-                            <a href="/advert-detail.html" title="ilan" class="ilan-resim">
+                            <a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="ilan" class="ilan-resim">
                                 <img src="images/cat.jpg" alt="ilan">
                             </a>
                             <div class="ilan-icerik">
-                                <h2><a href="/advert-detail.html" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
+                                <h2><a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
                                 <div class="ilan-info">
                                     <?= $value["ilan_hayvan_aciklama"] ?>
                                 </div>
