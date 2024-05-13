@@ -43,19 +43,6 @@ if (isset($_POST["register_name"])) {
         echo json_encode($sonuc);
         exit();
     }
-    $queryForTrigger = "CREATE OR REPLACE FUNCTION kullanici_ekle_log()
-    RETURNS TRIGGER AS $$
-    BEGIN
-        INSERT INTO loglar (event_type, details)
-        VALUES ('INSERT', 'Yeni bir kullanıcı eklendi. Kullanıcı adı: ' || NEW.kullanici_nickname);
-        RETURN NEW;
-    END;
-    $$ LANGUAGE plpgsql;
-    
-    CREATE TRIGGER kullanicilar_ekle_log
-    AFTER INSERT ON kullanicilar
-    FOR EACH ROW EXECUTE FUNCTION kullanici_ekle_log();";
-    $solveForTrigger = pg_query($conn, $queryForTrigger);
     $query = "INSERT INTO kullanicilar (kullanici_ad, kullanici_soyad, kullanici_nickname, kullanici_telefon_no, kullanici_adres, kullanici_email, kullanici_sifre, kullanici_yas) VALUES ('$name', '$surname', '$username', '$phone_no', '$address', '$email', '$password' , '$age')";
     $solve = pg_query($conn, $query);
     if (!$solve) {
@@ -167,18 +154,6 @@ if (isset($_POST["advert_title"]) && isset($_POST["advert_name"]) && isset($_POS
     $advert_gender = post("advert_gender");
     $advert_tur = post("advert_tur");
     $advert_description = post("description");
-    $queryForTriggerAdvert = "CREATE OR REPLACE FUNCTION advert_ekle_log()
-    RETURNS TRIGGER AS $$
-    BEGIN
-        INSERT INTO loglar (event_type, details)
-        VALUES ('INSERT', 'Yeni bir ilan eklendi. Ilan ID: ' || NEW.ilan_id);
-        RETURN NEW;
-    END;
-    $$ LANGUAGE plpgsql;
-    
-    CREATE TRIGGER advert_ekle_log
-    AFTER INSERT ON ilanlar
-    FOR EACH ROW EXECUTE FUNCTION advert_ekle_log();";
     $solveForTriggerAdvert = pg_query($conn, $queryForTriggerAdvert);
 
     $query = "INSERT INTO ilanlar (ilan_baslik, ilan_kullanici_id , ilan_hayvan_isim, ilan_hayvan_yas, ilan_hayvan_tur, ilan_hayvan_cinsiyet, ilan_hayvan_aciklama) VALUES ('$title', '$user_id', '$name', '$age', '$advert_tur', '$advert_gender', '$advert_description')";

@@ -94,7 +94,8 @@ $userDetails = $userDetails[0];
                 if(count($user_data) == 0){
                     echo "<p>Başvuru yapan kimse bulunamadı!</p>";
                 }else{
-                $take_user_name_and_surname = pg_select($conn, "kullanicilar", ["kullanici_id" => $user_data[0]["ilan_basvuran_kullanici_id"]]);
+                    foreach($user_data as $value){
+                $take_user_name_and_surname = pg_select($conn, "kullanicilar", ["kullanici_id" => $value["ilan_basvuran_kullanici_id"]]);
                 foreach($take_user_name_and_surname as $value){
                 ?>
                 <div class="app-item">
@@ -102,7 +103,7 @@ $userDetails = $userDetails[0];
                     <span class="app-name"><?= $value["kullanici_ad"]; ?> <?= $value["kullanici_soyad"]; ?></span>
                     <span class="app-loc"><?= $value["kullanici_adres"]; ?></span>
                 </div>
-                <?php } }?>
+                <?php } } }?>
             </div>
         </div>
     </section>
