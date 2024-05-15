@@ -25,7 +25,6 @@
     <title>Advert | PawMate</title>
 
 </head>
-
 <body>
 
 <?php require_once("src/header.php"); 
@@ -39,13 +38,12 @@ if(count($ilanDetails) == 0){
 }
 $ilanDetails = $ilanDetails[0];
 $sql = "CREATE OR REPLACE VIEW kullanici_detaylari AS
-        SELECT kullanici_id, kullanici_ad, kullanici_soyad, kullanici_email
+        SELECT kullanici_id, kullanici_ad, kullanici_soyad
         FROM kullanicilar";
 pg_query($conn, $sql);
 $userDetails = pg_select($conn, "kullanici_detaylari", ["kullanici_id" => $ilanDetails["ilan_kullanici_id"]]);
 $userDetails = $userDetails[0];
 ?>
-
     <section class="banner">
         <div class="container">
             <h1><?= $ilanDetails["ilan_baslik"]; ?></h1>
