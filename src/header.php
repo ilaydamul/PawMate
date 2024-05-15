@@ -1,4 +1,8 @@
 <?php
+function strToUpperFirst($string):string{
+    return ucfirst(strtolower($string));
+}
+
 error_reporting(0);
 require_once("db.php");
 session_start();

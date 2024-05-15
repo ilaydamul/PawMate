@@ -62,14 +62,14 @@ $userDetails = $userDetails[0];
                     <div class="detail-content">
                         <h2><?= $ilanDetails["ilan_baslik"] ?></h2>
                             <ul>
-                                <li><b>İlgili Kişi:</b> <?= $userDetails["kullanici_ad"]." ".$userDetails["kullanici_soyad"]; ?> </li>
-                                <li><b>Hayvan Adı:</b> <?= $ilanDetails["ilan_hayvan_isim"] ?></li>
-                                <li><b>Yaş:</b> <?= $ilanDetails["ilan_hayvan_yas"] ?></li>
+                                <li><b>İlgili Kişi:</b> <?= strToUpperFirst($userDetails["kullanici_ad"])." ".strToUpperFirst($userDetails["kullanici_soyad"]); ?> </li>
+                                <li><b>Hayvan Adı:</b> <?= strToUpperFirst($ilanDetails["ilan_hayvan_isim"]); ?></li>
+                                <li><b>Yaş:</b> <?= strToUpperFirst($ilanDetails["ilan_hayvan_yas"]) ?></li>
                                 <li><b>Cinsiyet:</b> <?php echo ($ilanDetails["ilan_hayvan_cinsiyet"] == 1) ? "Erkek" : "Kız";  ?></li>
-                                <li><b>Tür:</b> <?= $ilanDetails["ilan_hayvan_tur"] ?></li>
+                                <li><b>Tür:</b> <?= strToUpperFirst($ilanDetails["ilan_hayvan_tur"]);  ?></li>
                             </ul>
                         <div><b>Açıklama:</b>
-                            <p><?= $ilanDetails["ilan_hayvan_aciklama"] ?></p>
+                            <p><?= strToUpperFirst($ilanDetails["ilan_hayvan_aciklama"]); ?></p>
                         </div>
                         <div>
                             <form method="post" name="advert_basvuru" onsubmit="return false;">
@@ -98,8 +98,8 @@ $userDetails = $userDetails[0];
                 ?>
                 <div class="app-item">
                     <img src="images/user.png" alt="user">
-                    <span class="app-name"><?= $value["kullanici_ad"]; ?> <?= $value["kullanici_soyad"]; ?></span>
-                    <span class="app-loc"><?= $value["kullanici_adres"]; ?></span>
+                    <span class="app-name"><?= strToUpperFirst($value["kullanici_ad"]); ?> <?= strToUpperFirst($value["kullanici_soyad"]); ?></span>
+                    <span class="app-loc"><?= strToUpperFirst($value["kullanici_adres"]); ?></span>
                 </div>
                 <?php } } }?>
             </div>

@@ -142,7 +142,7 @@
                         <div class="ilan-icerik">
                             <h2><a href="advert-detail.php?id=<?= $value["ilan_id"]; ?>" title="Kuri Yuva Arıyor!"><?= $value["ilan_baslik"]; ?></a></h2>
                             <div class="ilan-info">
-                                <?= $value["ilan_hayvan_aciklama"]; ?>
+                                <?= strToUpperFirst($value["ilan_hayvan_aciklama"]); ?>
                             </div>
                             <a href="advert-detail.php?id=<?= $value["ilan_id"] ?>" class="ilan-link">Detayı Gör</a>
                             <button name="delete_button" data-id="<?= $value["ilan_id"]; ?>" class="ilan-link" style="background-color: red; border:none; width:100%;">Sil</button>
