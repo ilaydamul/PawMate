@@ -13,6 +13,8 @@ if(!$_POST){
     echo json_encode($sonuc);
     return false;
 }
+
+
 if (isset($_POST["register_name"])) {
     $sonuc = array();
     $name = $_POST["register_name"];
@@ -43,6 +45,7 @@ if (isset($_POST["register_name"])) {
         echo json_encode($sonuc);
         exit();
     }
+
     $query = "INSERT INTO kullanicilar (kullanici_ad, kullanici_soyad, kullanici_nickname, kullanici_telefon_no, kullanici_adres, kullanici_email, kullanici_sifre, kullanici_yas) VALUES ('$name', '$surname', '$username', '$phone_no', '$address', '$email', '$password' , '$age')";
     $solve = pg_query($conn, $query);
     if (!$solve) {

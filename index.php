@@ -118,7 +118,7 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
             <h1 class="title">İlanlar</h1>
             <!-- Filtreleme Alanı -->
             <div class="row mb-3">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="filter">
                         <h5>Cinsiyete göre filtrele</h5>
                         <form action="" method="GET">
@@ -134,7 +134,7 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                         </form>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="filter">
                         <h5>Belirtilen yaşa göre verileri getir</h5>
                         <form action="" method="GET">
@@ -146,7 +146,7 @@ HAVING MAX(ilan_hayvan_yas) IS NOT NULL";
                         </form>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="filter">
                         <h5>Türe göre filtrele</h5>
                         <form action="" method="GET">
